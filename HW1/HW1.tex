@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{tikz-cd}
+
+\begin{document}
+
+\title{MATH250A Homework 1}
+\author{Tagore(Songlin) Zhao}
+\date{}
+\maketitle-
+
+\section*{Problem 1}
+
+
+\textbf{Order 1:} This is the trivial group with only the identity element \( e \), which is commutative under any operation.
+
+\textbf{Order 2:} Let \( G \) be a group of order 2 with elements \( \{e, x\} \). Define another group \( G' \) similarly with elements \( \{e', x'\} \). We can construct an isomorphism \( f: G \to G' \) defined by:
+\[
+f(e) = e', \quad f(x) = x'.
+\]
+Any other mapping would break the homomorphism condition. Thus, \( G \) is unique up to isomorphism. Since \( x \cdot x = e \), we conclude that every group of order 2 is abelian.
+
+\textbf{Order 3:} Let \( G \) be a group of order 3 with elements \( \{e, a, b\} \). To prove \( G \) is abelian, consider the multiplication of elements. The only non-trivial case is \( ab = ba \). If \( ab = a \) or \( ab = b \), then \( a \) or \( b \) must equal \( e \), which is a contradiction. Therefore, \( ab = ba \), showing that \( G \) is abelian.
+
+\textbf{Order 4:} Let \( G \) be a group of order 4 with elements that can have orders 1, 2, or 4. If \( G \) has an element of order 4, then \( G \) must be cyclic, e.g., \( \{e, x, x^2, x^3\} \), and thus abelian. If all elements have order 1 or 2, then \( G \) is of the form \( \{e, g, h, gh\} \) where \( g^2 = h^2 = e \) and \( gh = hg \). To show 
+\( gh = hg \), we have \( (gh)^{2} = ghgh = e = gghh = g^{2}h^{2} \). Therefore, \( G \) is abelian.
+
+\textbf{Order 5:} By Lagrange's theorem, the order of each element must be 1 or 5, making \( G \) cyclic, hence abelian.
+
+
+\section*{Problem 2}
+
+By Lagrange's Theorem, a group \( G \) of order 4 can only have elements of order 1, 2, or 4. If \( G \) is a group of order 4 with an element of order 4, then \( G \) must be a cyclic group with elements \( \{1, x, x^2, x^3\} \). It is trivial to see that this group \( G \cong \mathbb{Z}/4\mathbb{Z} \).
+
+Now we shift our discussion to groups of order 4 with elements of order 1 or 2, and we want to show that it is isomorphic to \( \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \). As we have seen in the first question, we can write \( G = \{1, x, y, xy\} \), where \( x, y \) have order 2, and \( G \) is abelian with \( xy = yx \).
+
+We define a mapping:
+\[
+f : \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \to G,
+\]
+with 
+\[
+f(\overline{a}, \overline{b}) = x^a y^b.
+\]
+The mapping is listed below:
+\[
+f(\overline{0}, \overline{0}) \mapsto 1, \quad f(\overline{1}, \overline{0}) \mapsto x, \quad f(\overline{0}, \overline{1}) \mapsto y, \quad f(\overline{1}, \overline{1}) \mapsto xy.
+\]
+(This shows that \( f \) is a bijection.)
+
+We show that \( f \) is a homomorphism. Let \( \overline{a}, \overline{b}, \overline{c}, \overline{d} \in \mathbb{Z}/2\mathbb{Z} \). Then
+\[
+f(\overline{a}, \overline{b}) \cdot f(\overline{c}, \overline{d}) = x^a y^b \cdot x^c y^d = x^{a+c} y^{b+d} = f(\overline{a+c}, \overline{b+d}).
+\]
+
+Thus we get an isomorphism between \( G \) and \( \mathbb{Z}/2\mathbb{Z} \times \mathbb{Z}/2\mathbb{Z} \).
+
+The two groups above are clearly non-isomorphic since one contains an element of order 4, while the other does not.
+
+\section*{Probelm 3}
+\subsection*{(a)}
+We know that \( H \subseteq G \) is a subgroup of finite index. We write \( (G : H) = n \). Therefore, 
+\[
+G/H = \{xH \mid x \in G\}
+\]
+has exactly \( n \) elements since \( (G : H) = n \). We define a mapping 
+\[
+f: G \to S_n,
+\]
+where \( S_n \) is isomorphic to the permutation of \( G/H \). We define an action of \( G \) on the set of cosets \( G/H \) with \( g \cdot (xH) = (gx)H \) for \( g, x \in G \). This action induces a homomorphism where \( f(g) \) is the permutation of the cosets defined by 
+\[
+g \cdot (xH) = (gx)H.
+\]
+We know that 
+\[
+N = \ker(f)
+\]
+is a normal subgroup of \( G \) by the first isomorphism theorem. 
+
+Now, we want to show that \( \ker(f) \subseteq H \). For all \( g \in \ker(f) \), 
+\[
+g(xH) = (gx)H = xH.
+\]
+Thus, \( g \in xH \). Therefore, \( \ker(f) \subseteq H \). Hence, we find a normal subgroup \( N \) of \( G \) contained in \( H \) and also of finite index.
+\subsection*{(b)}
+Let \( (G : H_1) = n \) and \( (G : H_2) = m \). We first define a group action on the coset space. For \( g \in G \) and \( x \in G \), define the action:
+\[
+g \cdot (xH_1, xH_2) = (gxH_1, gxH_2).
+\]
+There we have a homomorphism:
+\[
+\phi : G \to \text{Sym}(H_1) \times \text{Sym}(H_2)
+\]
+with \(\phi(g) = (\sigma_{H_1}, \sigma_{H_2})\), where \(\sigma_{H_1}\) and \(\sigma_{H_2}\) are the permutations of the cosets of \( H_1 \) and \( H_2 \) induced by left multiplication.
+
+For all \( g \in \ker(\phi) \), we have:
+\[
+g \cdot (xH_1, xH_2) = (gxH_1, gxH_2) = (xH_1, xH_2),
+\]
+which implies \( g \in H_1 \cap H_2 \). For all \( g \in H_1 \cap H_2 \), we have:
+\[
+g \cdot (xH_1, xH_2) = (xH_1, xH_2),
+\]
+so \( g \in \ker(\phi) \). Therefore, \( \ker(\phi) = H_1 \cap H_2 \).
+
+By the first isomorphism theorem, we have:
+\[
+G / (H_1 \cap H_2) \cong \text{Im}(\phi) = \text{Sym}(H_1) \times \text{Sym}(H_2),
+\]
+thus:
+\[
+[G : H_1 \cap H_2] = |\text{Im}(\phi)| = |\text{Sym}(H_1) \times \text{Sym}(H_2)| = m! \cdot n!.
+\]
+
+\section*{Problem 4}
+
+We can write \( (G : H) = n \). Let \( G/H = \{gH \mid g \in G\} \) and \( H \backslash G = \{Hg \mid g \in G\} \).
+
+Define the mapping:
+\[
+\phi: G/H \to H \backslash G, \quad \phi(gH) \mapsto Hg^{-1}.
+\]
+
+We first check that this is well-defined. If \( g = g' \), then:
+\[
+\phi(gH) = Hg^{-1} = H{g'}^{-1} = \phi(g'H).
+\]
+
+\textbf{Injective:} Suppose \(\phi(gH) = \phi(g'H)\). Then:
+\[
+Hg^{-1} = H{g'}^{-1} \implies gH = g'H.
+\]
+
+\textbf{Surjective:} For any \( Hg \in H \backslash G \), there exists \( g' \in G \) such that:
+\[
+\phi(g'H) = Hg.
+\]
+
+We see that \(\phi\) is a bijection, thus:
+\[
+|G/H| = |H \backslash G| = n.
+\]
+
+\end{document}

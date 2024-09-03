@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm, tikz}
+\usetikzlibrary{arrows, automata}
+
+\begin{document}
+
+\title{Group, Ring, and Field Theory Lecture Notes}
+\author{}
+\date{}
+\maketitle
+
+\section*{Abstract Group $G$ and Symmetries}
+Let $G$ be an abstract group. Find an object $X$ where the symmetries of $X$ are isomorphic to $G$.
+
+\section*{Cayley Graph}
+\begin{itemize}
+    \item A Cayley graph is an ordered, directed graph where points represent elements of group $G$ and the set $S$ on which $G$ acts.
+    \item Define actions of $G$ on $S$:
+    \begin{itemize}
+        \item \textbf{Left Action}: A map \( G \times S \to S \), defined as \( (g, s) \mapsto g \cdot s \).
+        \item \textbf{Right Action}: A map \( S \times G \to S \), defined as \( (s, g) \mapsto s \cdot g \).
+    \end{itemize}
+    \item An action is \textbf{faithful} if \( g \cdot s = s \) for all \( s \in S \) implies \( g = e \) (the identity element), indicating that \( G \) acts bijectively on \( S \).
+    \item \textbf{Problem}: Add extra structure to $S$ to cut down the symmetry group to $G$.
+    \item Extra structure involves the right action of $G$ on $S$, satisfying \( s \cdot g = sg \). Verify that the left action preserves this structure.
+    \item The Cayley graph of $G$ is constructed by drawing lines from $s$ to $gs$ for each $g \in G$ and $s \in S$, coloring lines differently for each generator of $G$.
+\end{itemize}
+
+\section*{Examples}
+\begin{itemize}
+    \item For \( G = \) Klein 4-group, check that any symmetry of the Cayley graph is of the form $s \cdot g \cdot s$ for some $g \in G$.
+    \item \textbf{Exercise}: Classify actions of $G$ on itself. There are 8 actions of $G$ on $G$:
+    \begin{itemize}
+        \item Left actions: \( g(s) = gs \).
+        \item Right actions: \( g(s) = sg \).
+        \item Trivial action: \( g(s) = s \).
+        \item Adjoint action: \( g(s) = gsg^{-1} \).
+    \end{itemize}
+\end{itemize}
+
+\section*{Goals}
+\begin{itemize}
+    \item Classify all groups.
+    \item Find all representations of a group.
+    \item Define an action on some mathematical object that preserves its structure.
+\end{itemize}
+
+\section*{Lagrange's Theorem}
+\begin{itemize}
+    \item The order of an element \( g \in G \) divides the order of \( G \).
+    \item If \( G \) has prime order, it is isomorphic to \( \mathbb{Z}/p\mathbb{Z} \).
+\end{itemize}
+
+\section*{Action and Stabilizer}
+\begin{itemize}
+    \item Suppose $G$ acts transitively on a set $S$. Let $H$ be the stabilizer of an element $s \in S$. Then:
+    \[
+    |G| = |G : H| \cdot |H|.
+    \]
+\end{itemize}
+
+\section*{Matrix Groups}
+\begin{itemize}
+    \item Example: Find the order of \( \text{GL}_2(\mathbb{F}_2) \), the general linear group over the field $\mathbb{F}_2$. This group contains $2 \times 2$ matrices with non-zero determinants.
+\end{itemize}
+
+\section*{Group Products and Extensions}
+\begin{itemize}
+    \item Direct product: The direct product of groups \( G_1, G_2, \ldots, G_n \) is \( G = G_1 \times G_2 \times \ldots \times G_n \).
+    \item Warning: Complex group interactions can lead to unexpected behaviors in some products.
+\end{itemize}
+
+\section*{Field Theory}
+\begin{itemize}
+    \item For \( G \) acting on a field, explore field extensions and understand the roles of elements with specific order properties within the group structure.
+\end{itemize}
+
+
+\end{document}
